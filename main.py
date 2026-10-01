@@ -7,7 +7,7 @@ from models import User
 from schemas import UserRegister,UserLogin
 from auth import hash_password,verify_password,create_access_token,decode_access_token,oauth2_scheme
 
-
+#Create the tables defined by my models if they don't already exist.
 Base.metadata.create_all(bind=engine)
 
 app=FastAPI()
@@ -34,8 +34,8 @@ def login(user:UserLogin,db:Session=Depends(get_db)):
     
     if not db_user:
         raise HTTPException(
-            status_code=401
-            ,detail="Invalid username or password"
+            status_code=401,
+            detail="Invalid username or password"
         )  
     
     if not verify_password(user.password,db_user.password_hash):

@@ -5,6 +5,8 @@ from database import Base
 
 class User(Base):
     __tablename__="users"
+    #Create/use a PostgreSQL table called users.
+    
     
     id:Mapped[int]=mapped_column(
         primary_key=True,   

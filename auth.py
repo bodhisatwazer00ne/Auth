@@ -12,6 +12,7 @@ load_dotenv()
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
 password_hash=PasswordHash.recommended()
+#Creates a password hashing system using pwdlib.
 
 def hash_password(password:str):
     return password_hash.hash(password)
